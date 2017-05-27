@@ -20,6 +20,12 @@ var FeathersService = (function () {
         return this._http.get('http://localhost:3030/logs')
             .map(function (res) { return res.json(); });
     };
+    FeathersService.prototype.addLog = function (log) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._http.post('http://localhost:3030/logs', JSON.stringify(log), { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     return FeathersService;
 }());
 FeathersService = __decorate([
