@@ -22,4 +22,9 @@ export class FeathersService {
             .map(res => res.json());
     }
 
+    deleteLog(id) {
+        return this._http.delete('http://localhost:3030/logs/'+id)
+            .map(res => res.json());
+    }
+
 }
